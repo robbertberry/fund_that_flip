@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+  database: rot13_api_development
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: rot13_api_test
+  username: postgres
+  password: postgres
+
+production:
+  <<: *default
+  database: rot13_api_production
+  username: rot13_api
+  password: <%= ENV["ROT13_API_DATABASE_PASSWORD"] %>
+  host:     <%= ENV['host'] %>
+  port:     <%= ENV['port'] %>
